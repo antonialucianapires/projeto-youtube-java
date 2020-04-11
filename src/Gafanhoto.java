@@ -3,6 +3,12 @@ public class Gafanhoto extends Pessoa {
 	private String login;
 	private int toAssistido;
 	
+	public Gafanhoto(String nome, int idade, String sexo, String login) {
+		super(nome, idade, sexo);
+		this.login = login;
+		this.toAssistido = 0;
+	}
+	
 	public String getLogin() {
 		return login;
 	}
@@ -19,9 +25,11 @@ public class Gafanhoto extends Pessoa {
 		this.toAssistido = toAssistido;
 	}
 
-	public Gafanhoto(String nome, int idade, String sexo, String login) {
-		super(nome, idade, sexo);
-		this.login = login;
-		this.toAssistido = 0;
+	@Override
+	public String toString() {
+		return "Inscrito: " + super.toString() + "login = " + login + 
+			   ",toAssistido = " + toAssistido;
 	}
+	
+	
 }

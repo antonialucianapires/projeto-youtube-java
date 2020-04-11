@@ -5,14 +5,14 @@ public class Video implements AcoesVideo {
 	private	int avaliacao;
 	private int views;
 	private int curtidas;
-	private boolean reproduzido;
+	private boolean reproduzindo;
 
 	public Video(String titulo) {
 		this.titulo = titulo;
 		this.avaliacao = 1;
 		this.views = 0;
 		this.curtidas = 0;
-		this.reproduzido = false;
+		this.reproduzindo = false;
 	}
 	
 	public String getTitulo() {
@@ -28,7 +28,9 @@ public class Video implements AcoesVideo {
 	}
 
 	public void setAvaliacao(int avaliacao) {
-		this.avaliacao = avaliacao;
+		int novaAvaliacao;
+		novaAvaliacao = (int) ((this.avaliacao + avaliacao)/this.views);
+		this.avaliacao = novaAvaliacao;
 	}
 
 	public int getViews() {
@@ -48,21 +50,21 @@ public class Video implements AcoesVideo {
 	}
 
 	public boolean isReproduzido() {
-		return reproduzido;
+		return reproduzindo;
 	}
 
 	public void setReproduzido(boolean reproduzido) {
-		this.reproduzido = reproduzido;
+		this.reproduzindo = reproduzido;
 	}
 
 	@Override
 	public void play() {
-		this.reproduzido = true;
+		this.reproduzindo = true;
 	}
 	
 	@Override
 	public void pause() {
-		this.reproduzido = false;
+		this.reproduzindo = false;
 	}
 	
 	@Override
@@ -72,7 +74,7 @@ public class Video implements AcoesVideo {
 	
 	@Override
 	public String toString() {
-		return "Video [titulo=" + titulo + ", avaliacao=" + avaliacao + ", views=" + views + ", curtidas=" + curtidas
-				+ ", reproduzido=" + reproduzido + "]";
+		return "Video:\ntitulo = " + titulo + ", avaliacao = " + avaliacao + ", views = " + views + ",\ncurtidas = " + curtidas
+				+ ", reproduzindo = " + reproduzindo;
 	}
 }
